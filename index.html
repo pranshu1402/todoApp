@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>TODO List</title>
+</head>
+<body>
+    <div class="todo">
+        <p class="title">todos</p>
+        
+        <div class="notes">
+            <div class="createBox">
+                <span id="selectAll"><i class="fa fa-chevron-down"></i></span> 
+                <input id="enterTask" placeholder="What needs to be done?"/>  
+                <!-- <hr> -->
+            </div>     
+
+            <div class="tasks">
+            </div>
+
+            <div class="footer">
+                <p class="tasksCount"> 
+                    <span id="items"> 0 </span> task(s) remaining
+                </p>
+                
+                <div class="mainBtn">
+                        <button id="all">All</button>
+                        <button id="active">Active</button>
+                        <button id="completed">Completed</button>    
+                </div>
+
+                <div class="clearBtn">
+                    <button id="clear"> </button>
+                </div>
+            </div>
+        </div>  
+        
+        <div class="notes" id="n2">
+        </div>
+        <div class="notes" id="n3">
+        </div>
+    </div>
+</body>
+<script src="js/index.js"></script>
+</html>
+

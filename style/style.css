@@ -1,0 +1,205 @@
+
+body{
+    background-color: whitesmoke;
+}
+
+.todo{
+    width: 100%;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    font-family: verdana;
+    font-size: 8em;
+    color: rgba(175, 47, 47, 0.15);
+    margin: 5px;
+}
+
+.notes{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    margin: auto;
+    background-color: white;
+    width: 40%;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 30px 5px rgba(204, 204, 204, 0.644);
+    z-index: 100;
+}
+
+.createBox{
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    width: 100%;
+    height: 50px;
+    font-size: 1em;
+    border-bottom: 1px solid #ccc;
+}
+
+
+#selectAll{
+    width: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+}
+
+#enterTask{
+    width: 85%;
+    border: 0px; 
+    font-size: 1.5em;
+    word-wrap: normal;
+    font-style: italic;
+}
+
+#enterTask:focus{
+    outline: none;
+}
+
+.tasks{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+}
+
+.task{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.tickContainer{
+    flex-basis: 10%;
+    margin: 10px;
+    position: relative;
+}
+
+.tick{
+    visibility: hidden;
+}
+
+.tickLabel{
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    border: 1px solid grey;
+    background-color:  #fcf9ec;
+}
+
+.tickLabel:after {
+    border: 2px solid #fff;
+    border-top: none;
+    border-right: none;
+    content: "";
+    height: 6px;
+    left: 7px;
+    opacity: 0;
+    position: absolute;
+    top: 8px;
+    transform: rotate(-45deg);
+    width: 12px;
+}
+  
+.tick:checked + label {
+    background-color : #009973;
+    border-color: #009973;
+}
+  
+.tick:checked + label:after {
+    opacity: 1;
+}
+
+.taskDesc{
+    flex-basis: 70%;
+    float: left;
+}
+
+.closeBtn{
+    /* float: right; */
+    margin: 15px;
+    flex-basis: 4%;
+    font-size: 1em;
+    color: #ff4949;
+    font-style: italic;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.tasks hr{
+    border: 0.5px dashed #777;
+    width: 95%;    
+}
+
+.footer{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-content: center;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+}
+
+#items{
+    margin: auto 4px;
+}
+
+.tasksCount{
+    color: #777;
+    flex-basis: content;
+    /* display: flex; */
+    justify-content: center;
+}
+
+.mainBtn{
+    flex-basis: content;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#all,#active,#completed,#clear{
+    border: 1px solid transparent;
+    background-color: transparent;
+    height: fit-content;
+    color: #777;
+    margin: 3px;
+}
+
+#all:hover,#active:hover,#completed:hover,#clear:hover{
+    border: 1px solid #ff494986;
+}
+
+.clearBtn{
+    color: #777;
+    flex-basis: content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#n2{
+    width: 39%;
+    height: 2px;
+    z-index: 10;
+}
+
+#n3{
+    width: 38%;
+    height: 3px;
+    z-index: 1;
+}
