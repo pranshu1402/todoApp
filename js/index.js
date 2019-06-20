@@ -177,13 +177,12 @@ document.getElementById("completed").addEventListener('click', () => {
 
 document.getElementById("clear").addEventListener('click', () => {
     var tasks = getTasks(); 
-    var i = 0;
     [...tasks].forEach((task) => {
         if(task.children[0].children[0].checked){
+            var i = task.id;
             task.remove();
-            document.getElementById(i).remove();
+            document.getElementById(i.slice(4)).remove();
         }
-        i++;
     });
 
     notesCount-= completedTasks;

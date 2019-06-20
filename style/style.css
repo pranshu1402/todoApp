@@ -14,7 +14,7 @@ body{
     display: flex;
     justify-content: center;
     font-family: verdana;
-    font-size: 8em;
+    font-size: 12vw;
     color: rgba(175, 47, 47, 0.15);
     margin: 5px;
 }
@@ -37,14 +37,15 @@ body{
     justify-content: space-around;
     align-content: center;
     width: 100%;
-    height: 50px;
-    font-size: 1em;
+    height: 4vw;
+    font-size: 1.5vw;
     border-bottom: 1px solid #ccc;
 }
 
 
 #selectAll{
-    width: 5%;
+    width: 10%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -66,20 +67,23 @@ body{
 .tasks{
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     width: 100%;
     background-color: white;
 }
 
 .task{
     display: flex;
-    flex-flow: row wrap;
+    width: 100%;
+    flex-direction: row;
     justify-content: space-between;
-    align-content: center;
+    align-items: center;
 }
 
 .tickContainer{
-    flex-basis: 10%;
-    margin: 10px;
+    flex-basis: 2vw;
+    height: 2vw;
+    margin: 2%;
     position: relative;
 }
 
@@ -88,29 +92,30 @@ body{
 }
 
 .tickLabel{
-    width: 28px;
-    height: 28px;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
     cursor: pointer;
     position: absolute;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
     border: 1px solid grey;
     background-color:  #fcf9ec;
 }
 
 .tickLabel:after {
+    width: 10px;
+    height: 5px;
+    margin: 25% 0px 0px 20%;
     border: 2px solid #fff;
     border-top: none;
     border-right: none;
     content: "";
-    height: 6px;
-    left: 7px;
+    left: 0;
     opacity: 0;
     position: absolute;
-    top: 8px;
+    top: 0;
     transform: rotate(-45deg);
-    width: 12px;
 }
   
 .tick:checked + label {
@@ -123,24 +128,27 @@ body{
 }
 
 .taskDesc{
-    flex-basis: 70%;
+    flex-basis: 30vw;
+    font-size: 1.5vw;
+    word-wrap: break-word;
+    padding: 2%;
     float: left;
 }
 
 .closeBtn{
-    /* float: right; */
     margin: 15px;
-    flex-basis: 4%;
-    font-size: 1em;
+    flex-basis: 1vw;
+    border: none;
+    font-size: 100%;
     color: #ff4949;
-    font-style: italic;
     border-radius: 50%;
     background-color: white;
 }
 
 .tasks hr{
     border: 0.5px dashed #777;
-    width: 95%;    
+    width: 95%;
+    margin: 3px auto;
 }
 
 .footer{
@@ -160,7 +168,6 @@ body{
 .tasksCount{
     color: #777;
     flex-basis: content;
-    /* display: flex; */
     justify-content: center;
 }
 
@@ -200,6 +207,78 @@ body{
 
 #n3{
     width: 38%;
-    height: 3px;
+    height: 2px;
     z-index: 1;
+}
+
+@media(max-width: 800px){
+    .notes{
+        width: 60%;
+    }
+
+    button, .tasksCount{
+        font-size: 1.5vw;
+    }
+
+    .tickLabel{
+        width: 15px;
+        height: 15px;
+    }
+
+    .tickLabel:after{
+        width: 8px;
+        height: 4px;
+        margin: 4px 0 0 3px;
+    }
+
+    .taskDesc{
+        font-size: 2.5vw;
+    }
+
+    #n2{
+        width: 58.5%;
+    }
+
+    #n3{
+        width: 57%;
+    }
+}
+
+@media(max-width: 500px){
+    .notes{
+        width: 80%;
+    }
+
+    .createBox{
+        height: 5vh;
+    }
+
+    .tickLabel{
+        width: 15px;
+        height: 15px;
+        top: -40%;
+        left: 10%;
+    }
+
+    .tickLabel:after{
+        width: 8px;
+        height: 4px;
+        margin: 4px 0 0 2px;
+    }
+    
+    .taskDesc{
+        font-size: 4vw;
+    }
+
+    button, .tasksCount{
+        font-size: 2vw;
+    }
+
+    #n2{
+        width: 78%;
+    }
+
+    #n3{
+        width: 76%;
+    }
 }
