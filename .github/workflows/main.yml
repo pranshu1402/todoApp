@@ -29,6 +29,7 @@ jobs:
           username: ${{  env.USER_NAME }}
           key: ${{ env.PRIVATE_KEY }}
           port: 22
+          overwrite: true
           source: "index.html,style/*,js/*"
           target: "todo_app"
       - name: SSH into EC2 & Install nginx
@@ -46,7 +47,7 @@ jobs:
             sudo cd /var/www/
             sudo rm -rf .
             sudo cd ~
-            sudo cp -a todo_app/. /var/www/
+            sudo cp -a todo_app/. /var/www/html           
       # - name: SSH into EC2
       #   run:  |
       #     echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
