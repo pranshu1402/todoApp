@@ -24,6 +24,15 @@ jobs:
         run: ls -al
       - name: SSH into EC2 & Install nginx
         uses: appleboy/ssh-action@v1
+              - name: Copy files via SSH
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ env.HOSTNAME }}
+          username: ${{  env.USER_NAME }}
+          key: ${{ env.PRIVATE_KEY }}
+          port: 22
+          source: "index.html,style/*,js/*"
+          target: "todo_app"
         with:
           host: ${{ env.HOSTNAME }}
           username: ${{  env.USER_NAME }}
@@ -34,15 +43,7 @@ jobs:
             sudo apt install nginx -y
             sudo systemctl start nginx
             sudo systemctl enable nginx
-      - name: Copy files via SSH
-        uses: appleboy/scp-action@v1
-        with:
-          host: ${{ env.HOSTNAME }}
-          username: ${{  env.USER_NAME }}
-          key: ${{ env.PRIVATE_KEY }}
-          port: 22
-          source: "index.html,style/*,js/*"
-          target: "/var/www"
+            sudo cp -a todo_app/. /var/www/
       # - name: SSH into EC2
       #   run:  |
       #     echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
