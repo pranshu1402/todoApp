@@ -27,7 +27,7 @@ jobs:
         with:
           host: ${{ env.HOSTNAME }}
           username: ${{  env.USER_NAME }}
-          key: ${{ secrets.PRIVATE_KEY }}
+          key: ${{ env.PRIVATE_KEY }}
           port: 22
           source: "index.html,style/*,js/*"
           target: "home/ubuntu/dist"
