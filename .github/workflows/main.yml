@@ -29,7 +29,6 @@ jobs:
           username: ${{  env.USER_NAME }}
           key: ${{ env.PRIVATE_KEY }}
           port: 22
-          overwrite: true
           source: "index.html,style/*,js/*"
           target: "/var/www"
       - name: SSH into EC2 & Install nginx
