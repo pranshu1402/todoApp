@@ -4,7 +4,13 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
+      - master
+
+env:
+  PRIVATE_KEY: ${{ secrets.EC2_PRIVATE_KEY }}
+  HOSTNAME: ${{secrets.EC2_HOST}}
+  USER_NAME: ${{secrets.EC2_USERNAME}}
+  REGION: ${{secrets.EC2_REGION}}
 
 jobs:
   deploy:
@@ -16,4 +22,23 @@ jobs:
           fetch-depth: 0
       - name: List files
         run: ls -al
-      
+      - name: Copy files via SSH
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ env.HOSTNAME }}
+          username: ${{  env.USER_NAME }}
+          key: ${{ secrets.PRIVATE_KEY }}
+          port: 22
+          source: "index.html,style/*,js/*"
+          target: "home/ubuntu/dist"
+      # - name: SSH into EC2
+      #   run:  |
+      #     echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+      #     ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME}
+      # - name: Clone git
+      #   run: git clone https://github.com/pranshu1402/todoApp.git
+      # - name: Install node
+      #   run: sudo apt-get update 
+      # - name: Install Serve
+      #   run: npm install --global serve
+        
