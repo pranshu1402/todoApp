@@ -22,6 +22,18 @@ jobs:
           fetch-depth: 0
       - name: List files
         run: ls -al
+      - name: SSH into EC2 & Install nginx
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ env.HOSTNAME }}
+          username: ${{  env.USER_NAME }}
+          key: ${{ env.PRIVATE_KEY }}
+          port: 22
+          script: |
+            sudo apt update
+            sudo apt install nginx
+            sudo systemctl start nginx
+            sudo systemctl enable nginx
       - name: Copy files via SSH
         uses: appleboy/scp-action@v1
         with:
@@ -29,8 +41,9 @@ jobs:
           username: ${{  env.USER_NAME }}
           key: ${{ env.PRIVATE_KEY }}
           port: 22
+          overwrite: true
           source: "index.html,style/*,js/*"
-          target: "home/ubuntu/dist"
+          target: "/var/www"
       # - name: SSH into EC2
       #   run:  |
       #     echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
